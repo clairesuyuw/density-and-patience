@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An interactive exploration of urban density, time pressure, and patience.">
+  <title>Density & Patience</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <header class="hero">
+      <p class="eyebrow">COMPUTATIONAL OBSERVATION 01</p>
+      <h1>When space shrinks,<br>what happens to <em>patience?</em></h1>
+      <p class="intro">An exploratory model of crowding, time pressure, and urban interaction. Change the environment and observe how behavior changes with it.</p>
+      <a class="begin" href="#lab">Enter the experiment <span>↓</span></a>
+    </header>
+
+    <section class="lab" id="lab" aria-labelledby="lab-title">
+      <div class="lab-head">
+        <div>
+          <p class="section-no">01 / Interactive Model</p>
+          <h2 id="lab-title">Urban Corridor Simulator</h2>
+        </div>
+        <p class="lab-note">Each dot represents a pedestrian. Warmer colors indicate lower patience in the model.</p>
+      </div>
+
+      <div class="experiment">
+        <aside class="controls" aria-label="Simulation controls">
+          <div class="control">
+            <div class="control-label"><label for="people">People in Space</label><output id="peopleOut">24</output></div>
+            <input id="people" type="range" min="8" max="60" value="24" step="1">
+            <div class="range-label"><span>Open</span><span>Crowded</span></div>
+          </div>
+          <div class="control">
+            <div class="control-label"><label for="space">Space Width</label><output id="spaceOut">70%</output></div>
+            <input id="space" type="range" min="35" max="100" value="70" step="1">
+            <div class="range-label"><span>Narrow</span><span>Wide</span></div>
+          </div>
+          <div class="control">
+            <div class="control-label"><label for="pressure">Time Pressure</label><output id="pressureOut">45%</output></div>
+            <input id="pressure" type="range" min="0" max="100" value="45" step="1">
+            <div class="range-label"><span>Relaxed</span><span>Rushed</span></div>
+          </div>
+          <div class="actions">
+            <button id="pause" type="button">Pause</button>
+            <button id="reset" class="ghost" type="button">Reset</button>
+          </div>
+        </aside>
+
+        <div class="stage-wrap">
+          <div class="stage-label"><span>← Westbound flow</span><span>Eastbound flow →</span></div>
+          <canvas id="scene" aria-label="Animated simulation of pedestrians moving through an urban corridor"></canvas>
+          <div class="legend" aria-hidden="true"><span><i class="calm"></i>Calm</span><span><i class="tense"></i>Tense</span><span><i class="impatient"></i>Impatient</span></div>
+        </div>
+      </div>
+
+      <div class="metrics" aria-live="polite">
+        <article><p>Average Patience</p><strong id="patienceMetric">72</strong><span>/ 100</span></article>
+        <article><p>Personal-Space Intrusions</p><strong id="contactMetric">0</strong><span>per minute</span></article>
+        <article><p>Perceived Density</p><strong id="densityMetric">Medium</strong><span id="densityHint">Room to navigate</span></article>
+      </div>
+      <p class="observation" id="observation">Most people can still maintain personal distance, while time pressure is slowly reducing patience.</p>
+    </section>
+
+    <section class="thinking">
+      <div class="thinking-intro">
+        <p class="section-no">02 / Computational Thinking</p>
+        <h2>Turn an impression into observable variables.</h2>
+      </div>
+      <div class="steps">
+        <article><span>01</span><div><h3>Decompose</h3><p>Break “impatience” into crowd size, interpersonal distance, waiting, speed, and time pressure.</p></div></article>
+        <article><span>02</span><div><h3>Recognize Patterns</h3><p>As distance shrinks and pressure rises, yielding may decrease while detours and friction increase.</p></div></article>
+        <article><span>03</span><div><h3>Abstract</h3><p>Use moving dots for pedestrians and color for patience, reducing a complex city to one corridor.</p></div></article>
+        <article><span>04</span><div><h3>Model an Algorithm</h3><p>Close encounters, obstruction, and rushing lower patience; gaining space allows it to recover slowly.</p></div></article>
+      </div>
+    </section>
+
+    <section class="reflection">
+      <p class="section-no">03 / Reflection</p>
+      <blockquote>Behavior that appears cold or rude may also be an adaptation for protecting personal space and reducing stimulation in dense environments.</blockquote>
+      <div class="reflection-grid">
+        <p>This model is not a social-science conclusion, and it cannot prove that crowding directly causes impatience. It turns an everyday observation into an adjustable hypothesis so we can examine possible links between environment and behavior.</p>
+        <p>Computational thinking helped me move from a broad impression about people toward conditions that can be observed and discussed: how many people, how much space, how much time pressure, and how those conditions may shape interaction together.</p>
+      </div>
+    </section>
+  </main>
+  <footer><span>Density & Patience</span><span>Exploratory model · 2026</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
